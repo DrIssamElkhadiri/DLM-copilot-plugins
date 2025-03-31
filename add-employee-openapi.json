@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Add Employee to SharePoint",
+    "version": "1.0.0",
+    "description": "Send employee name to SharePoint list via Power Automate"
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Add employee name",
+        "operationId": "addEmployee",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "employees": {
+                    "type": "string",
+                    "description": "Name of the employee"
+                  }
+                },
+                "required": ["employees"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Employee added"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://prod-149.westeurope.logic.azure.com:443/workflows/eebfaafb794f4f50914973790ce6f67d/triggers/manual/paths/invoke?api-version=2016-06-01"
+    }
+  ]
+}
